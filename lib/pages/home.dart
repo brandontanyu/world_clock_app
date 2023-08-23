@@ -10,8 +10,16 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: Text("Home Screen")),
+    return  Scaffold(
+      body: Center(
+          child: SafeArea(
+              child: Text(
+                  "Home Screen",
+              style: TextStyle(
+                fontSize: 50.0,
+                color: Colors.amberAccent[200],
+              ),
+              ))),
     );
   }
 }
