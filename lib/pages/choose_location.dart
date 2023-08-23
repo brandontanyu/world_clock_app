@@ -10,8 +10,21 @@ import 'package:flutter/material.dart';
     class _ChooseLocationState extends State<ChooseLocation> {
       @override
       Widget build(BuildContext context) {
-        return const Scaffold(
-          body: Text("Choose Location Screen"),
+        return Scaffold(
+          backgroundColor: Colors.grey[100],
+          appBar: AppBar(
+            backgroundColor: Colors.indigo[600],
+            title: const Text("Choose Location"),
+            centerTitle: true,
+            elevation: 0.0,
+          ),
+          body:  Center(
+              child: Text(
+                  "Choose Location Screen",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.grey[900],
+                  ),)),
         );
       }
     }

@@ -12,7 +12,13 @@ class _LoadingState extends State<Loading> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-          child: Text("Loading Screen")),
+          child: Text(
+              "Loading Screen",
+                style: TextStyle(
+                  fontSize: 40.0,
+                  fontStyle: FontStyle.italic,
+
+                ),)),
     );
   }
 }
