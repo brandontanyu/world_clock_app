@@ -6,7 +6,7 @@ import 'package:world_clock_app/pages/loading.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: "/home",
+    initialRoute: "/",
     routes: { //the context object tells where in the widget tree we are.
       "/": (context) => const Loading(),
       "/home": (context) => const Home(),
