@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -8,8 +9,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Object? data = {};
   @override
   Widget build(BuildContext context) {
+     data = ModalRoute.of(context)?.settings.arguments;
+     if (kDebugMode) {
+       print(data);
+     }
     return  Scaffold(
       body: SafeArea(
           child: Column(

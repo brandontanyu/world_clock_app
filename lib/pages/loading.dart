@@ -15,13 +15,23 @@ class _LoadingState extends State<Loading> {
 
   String time = "Loading.......";
 
+  //A separate function to move to a new screen since CONTEXT is permitted across async  functions
+  void move(WorldTime worldTime){
+    Navigator.pushNamed(context,"/home",arguments: {
+      'location': worldTime.location,
+      'flag': worldTime.flag,
+      'time': worldTime.time,
+    }
+    );
+  }
+
   void setupWorldTime() async{
     WorldTime worldTime = WorldTime(location: "Berlin", url: "Europe/Berlin", flag: "germany.png");
     await worldTime.getTime();
+    move(worldTime);
     setState(() {
       time = worldTime.time;
     });
-
   }
 
   @override
