@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
      data = ModalRoute.of(context)!.settings.arguments as Map;
 
      //Set background
-     String bgImage = data['isDayTime'] ? "daytime.png" : "nightTime.png";
+     String bgImage = data['isDayTime'] ? "day.png" : "nightTime.png";
      Color? bgColor = data['isDayTime'] ? Colors.blue[200] : Colors.black54;
 
      if (kDebugMode) {
