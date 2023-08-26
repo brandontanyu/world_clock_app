@@ -25,7 +25,7 @@ class _LoadingState extends State<Loading> {
   }
 
   void setupWorldTime() async{
-    WorldTime worldTime = WorldTime(location: "Berlin", url: "Europe/Berlin", flag: "germany.png");
+    WorldTime worldTime = WorldTime(location: "Berlin", url: "America/Toronto", flag: "germany.png");
     await worldTime.getTime();
     move(worldTime);
     setState(() {
