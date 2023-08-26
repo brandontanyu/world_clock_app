@@ -24,7 +24,6 @@ import '../services/world_time.dart';
 
       WorldTime worldTime = WorldTime(location: "Berlin", url: "America/Toronto", flag: "germany.png");
 
-
       @override
       Widget build(BuildContext context) {
         return Scaffold(
@@ -41,9 +40,15 @@ import '../services/world_time.dart';
               return Card(
                 child: ListTile(
                   onTap: (){
-
                   },
                   title: Text(locations[index].location),
+                  subtitle: const Text('Something'),
+                  subtitleTextStyle: const TextStyle(
+                    fontStyle: FontStyle.italic,
+                  ),
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage('assets/${locations[index].flag}'),
+                  ),
                 ),
               );
             },
