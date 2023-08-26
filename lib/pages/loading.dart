@@ -12,7 +12,6 @@ class Loading extends StatefulWidget {
   State<Loading> createState() => _LoadingState();
 }
 class _LoadingState extends State<Loading> {
-
   String time = "Loading.......";
 
   //A separate function to move to a new screen since CONTEXT is permitted across async  functions

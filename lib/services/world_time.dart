@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 class WorldTime{
   final String location;
@@ -32,7 +33,7 @@ class WorldTime{
         //Create a date time object
         DateTime now = DateTime.parse(datetime);
         now = now.add(Duration(hours: int.parse(offset.substring(1,3))));
-        time = now.toString();
+        time = DateFormat.jm().format(now);
       }
     }catch(e){
       if (kDebugMode) {
