@@ -5,9 +5,10 @@ import 'package:intl/intl.dart';
 
 class WorldTime{
   final String location;
-  final String url;
-  late final String time;
-  final String flag;
+  final String url;      //location url for API endpoint
+  late final String time; // the time in that location
+  final String flag;  // url to an asset flag icon
+  late bool isDayTime; //true or false is daytime or not.
 
   WorldTime({
     required this.location,
@@ -33,6 +34,8 @@ class WorldTime{
         //Create a date time object
         DateTime now = DateTime.parse(datetime);
         now = now.add(Duration(hours: int.parse(offset.substring(1,3))));
+
+        isDayTime = now.hour > 6 && now.hour < 20 ? true: false;
         time = DateFormat.jm().format(now);
       }
     }catch(e){
