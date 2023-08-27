@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
-     data = ModalRoute.of(context)!.settings.arguments as Map;
+     data = data.isNotEmpty? data : ModalRoute.of(context)!.settings.arguments as Map;
 
      //Set background
      String bgImage = data['isDayTime'] ? "day.png" : "nightTime.png";
@@ -38,8 +38,17 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   TextButton.icon(
-                      onPressed: () {
-                        Navigator.pushNamed(context, "/location");
+                      onPressed: () async {
+                        dynamic results =  await Navigator.pushNamed(context, "/location");
+                        setState(() {
+                          data = {
+                            'location': results['location'],
+                            'flag': results['flag'],
+                            'time': results['time'],
+                            'isDayTime': results['isDayTime'],
+                          };
+                        });
+
                       },
                       label:  Text(
                         "Edit Location",

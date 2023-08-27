@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../services/world_time.dart';
@@ -22,7 +23,22 @@ import '../services/world_time.dart';
         WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
       ];
 
-      WorldTime worldTime = WorldTime(location: "Berlin", url: "America/Toronto", flag: "germany.png");
+      void updateTime(index) async{
+        WorldTime worldTime = locations[index];
+        await worldTime.getTime();
+
+        //Navigate to home screen with data
+        navigateToHome(worldTime);
+      }
+
+      void navigateToHome(WorldTime worldTime){
+        Navigator.pop(context,{
+          'location': worldTime.location,
+          'flag': worldTime.flag,
+          'time': worldTime.time,
+          'isDayTime': worldTime.isDayTime,
+        });
+      }
 
       @override
       Widget build(BuildContext context) {
@@ -37,22 +53,25 @@ import '../services/world_time.dart';
           body: ListView.builder(
             itemCount: locations.length,
             itemBuilder: (context, index){
-              return Card(
-                child: ListTile(
-                  onTap: (){
-                  },
-                  title: Text(locations[index].location),
-                  subtitle: const Text('Something'),
-                  subtitleTextStyle: const TextStyle(
-                    fontStyle: FontStyle.italic,
-                  ),
-                  leading: CircleAvatar(
-                    backgroundImage: AssetImage('assets/${locations[index].flag}'),
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 2.0),
+                child: Card(
+                  child: ListTile(
+                    onTap: (){
+                      updateTime(index);
+                    },
+                    title: Text(locations[index].location),
+                    subtitle: const Text('Something'),
+                    subtitleTextStyle: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                    ),
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage('assets/${locations[index].flag}'),
+                    ),
                   ),
                 ),
               );
             },
-
           ),
         );
       }
