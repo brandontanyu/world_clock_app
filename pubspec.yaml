@@ -74,7 +74,7 @@ flutter:
     - assets/uk.png
     - assets/usa.png
     - assets/toronto.png
-
+    - assets/douala.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

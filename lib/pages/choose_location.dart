@@ -21,8 +21,8 @@ import '../services/world_time.dart';
         WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
         WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
         WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
-        WorldTime(url: 'America/Toronto', location: 'Toronto', flag: 'toronto.png'),
         // WorldTime(url: 'America/Toronto', location: 'Toronto', flag: 'toronto.png'),
+        WorldTime(url: 'Africa/Douala', location: 'Douala', flag: 'douala.png'),
       ];
 
       void updateTime(index) async{
